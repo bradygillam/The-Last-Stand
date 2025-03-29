@@ -42,11 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496382673766253356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a795e9638c49b1a7db169460993173, type: 3}
+  m_Script: {fileID: 11500000, guid: 545bc858e4f940f5b6de90c200491ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  damage: 25
+  damage: 50
   speed: 1
   cashValue: 100
 --- !u!1 &3682527508429777190

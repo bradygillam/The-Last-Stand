@@ -573,6 +573,8 @@ MonoBehaviour:
   friendlySpawnPoint: {fileID: 755873299}
   soldierPrefab: {fileID: 1496382673766253356, guid: e1b1afee2ec5b8c4682689e7210c2e01, type: 3}
   soldierCost: 100
+  minSpawnY: 5
+  maxSpawnY: 1075
 --- !u!1 &1138537835
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,12 +732,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6624430814400065359, guid: eaa4a1b47bba32b4d8bce9d09da788ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2143310852}
-    - targetCorrespondingSourceObject: {fileID: 6624430814400065359, guid: eaa4a1b47bba32b4d8bce9d09da788ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2143310851}
     - targetCorrespondingSourceObject: {fileID: 6624430814400065359, guid: eaa4a1b47bba32b4d8bce9d09da788ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2143310850}
@@ -1143,35 +1139,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2143310849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe07338dafb047ce859b51aad3fc2453, type: 3}
+  m_Script: {fileID: 11500000, guid: e79f9d70e3442df4594a0efce174d596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2143310851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143310849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198df89497f24a63bcc4b43ec881a4a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  waveStartTime: 5
+  waveRepeatTime: 5
   enemyUnitPrefabs:
   - {fileID: 1496382673766253356, guid: f2c6935fb2e29c54388acf096fb757c4, type: 3}
---- !u!114 &2143310852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143310849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e7363287f83fa498a8b535d9a87815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
