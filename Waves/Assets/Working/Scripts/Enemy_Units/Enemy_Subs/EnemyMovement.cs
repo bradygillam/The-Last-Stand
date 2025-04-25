@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 public class EnemyMovement : MonoBehaviour
 {
     Vector3 targetPosition;
-    private float speed = 1f;
+    private float speed = 0.2f;
     private float MAX_Y_MOV_OFFSET = 1f;
     private float MAX_X_MOV_OFFSET = 1f;
     private float INITIAL_X_MOV = 0.5f;

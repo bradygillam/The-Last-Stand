@@ -9,25 +9,23 @@ public class EnemySpawn : MonoBehaviour
     private float MAX_Y_SPAWN = 9.6f;
     private float MAX_X_SPAWN = 1.5f;
     private float cashToSpend;
-    private float waveNumber;
 
     void Start()
     {
         cashToSpend = ENEMY_START_CASH;        
-        waveNumber = 0;
         InvokeRepeating("spawnWave", wavesStart, waveRepeat);
     }
 
     private void spawnWave()
     {
-        cashToSpend += 50 * waveNumber;
+        cashToSpend += 10 * GlobalVariables.waveNumber;
         
         while (cashToSpend >= 100f)
         {
             spawnEnemy();
         }
         
-        waveNumber++;
+        GlobalVariables.waveNumber++;
     }
 
     private void spawnEnemy()
