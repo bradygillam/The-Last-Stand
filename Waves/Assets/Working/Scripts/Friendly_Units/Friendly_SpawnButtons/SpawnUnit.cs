@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpawnRecruit : MonoBehaviour
+public class SpawnUnit : MonoBehaviour
 {
     [SerializeField] private Button recruitButton;
     [SerializeField] private Button riflemanButton;
