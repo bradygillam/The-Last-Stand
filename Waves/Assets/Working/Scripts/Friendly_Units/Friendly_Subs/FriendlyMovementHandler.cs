@@ -8,6 +8,7 @@ public class FriendlyMovementHandler : MonoBehaviour
     Vector3 targetPosition;
     private float INITIAL_X_MOV = -1f;
     private bool isSelected;
+    private bool isMoving;
     
     private FriendlyUnitStats unitStats;
     
@@ -26,6 +27,7 @@ public class FriendlyMovementHandler : MonoBehaviour
     void FixedUpdate()
     {
         moveTowardsTarget();
+        rotateTowardsTarget();
         displaySelected();
     }
     
@@ -33,18 +35,31 @@ public class FriendlyMovementHandler : MonoBehaviour
     {
         if (transform.position != targetPosition)
         {
-            rotateTowardsTarget();
+            isMoving = true;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * unitStats.speed);
+        }
+        else
+        {
+            isMoving = false;
+        }
+    }
+
+    private void rotateTowardsTarget()
+    {
+        if (isMoving)
+        {
+            Vector2 direction = targetPosition - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        else if (unitStats.target != null)
+        {
+            Vector2 direction = unitStats.target.transform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
     
-    private void rotateTowardsTarget()
-    {
-        Vector2 direction = targetPosition - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
     private void detectSelected()
     {
         if (Input.GetMouseButtonDown(0))

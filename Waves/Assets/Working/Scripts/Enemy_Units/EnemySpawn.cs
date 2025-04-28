@@ -5,8 +5,6 @@ public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private float ENEMY_START_CASH = 100f;
-    [SerializeField] private float wavesStart = 1f;
-    [SerializeField] private float waveRepeat = 3f;
     private float MAX_Y_SPAWN = 9.6f;
     private float MAX_X_SPAWN = 1.5f;
     private float cashToSpend;
@@ -14,7 +12,7 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         cashToSpend = ENEMY_START_CASH;        
-        InvokeRepeating("spawnWave", wavesStart, waveRepeat);
+        InvokeRepeating("spawnWave", GlobalVariables.waveStartTime, GlobalVariables.waveRepeatTime);
     }
 
     private void spawnWave()
