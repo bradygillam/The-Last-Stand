@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4271421851699788602}
   - component: {fileID: 586497755826803511}
   m_Layer: 0
-  m_Name: sprite_unselected
+  m_Name: sprite_selected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,9 +96,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1503700393552114764}
-  - component: {fileID: 5191848706162338260}
-  - component: {fileID: -1185647624254999554}
   - component: {fileID: 8886997479374446115}
+  - component: {fileID: 744023163294644752}
+  - component: {fileID: 4527672688508567333}
+  - component: {fileID: -2775527411432199537}
   m_Layer: 0
   m_Name: Marine_Friendly
   m_TagString: Untagged
@@ -123,33 +124,6 @@ Transform:
   - {fileID: 4271421851699788602}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5191848706162338260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592298282181722650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25221c0a4e258294a840d09133b17290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unselectedSprite: {fileID: 8742999408874092578}
-  selectedSprite: {fileID: 2514351592692048392}
---- !u!114 &-1185647624254999554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592298282181722650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546057ab267549e4b1cdcb8c117aab6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.25
 --- !u!58 &8886997479374446115
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -186,6 +160,47 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.07, y: 0}
   m_Radius: 2
+--- !u!114 &744023163294644752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592298282181722650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546057ab267549e4b1cdcb8c117aab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.55
+  isMoving: 0
+  target: {fileID: 0}
+--- !u!114 &4527672688508567333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592298282181722650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ec76cd2f0dd24e992a0e803b26829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unselectedSprite: {fileID: 8742999408874092578}
+  selectedSprite: {fileID: 2514351592692048392}
+--- !u!114 &-2775527411432199537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592298282181722650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e076d0c4a17342f385800613c4e8831d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8742999408874092578
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +212,7 @@ GameObject:
   - component: {fileID: 6545010460580865031}
   - component: {fileID: 8785339075783852209}
   m_Layer: 0
-  m_Name: sprite
+  m_Name: sprite_unselected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

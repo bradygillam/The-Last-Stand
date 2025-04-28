@@ -1,18 +1,20 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovementHandler : MonoBehaviour
 {
     Vector3 targetPosition;
-    private float speed = 0.2f;
     private float MAX_Y_MOV_OFFSET = 1f;
     private float MAX_X_MOV_OFFSET = 1f;
     private float INITIAL_X_MOV = 0.5f;
     private float DEATH_PLANE = 8.7f;
 
+    private EnemyUnitStats unitStats;
+    
     void Start()
     {
         targetPosition = transform.position + new Vector3(INITIAL_X_MOV, 0f, 0f);
+        unitStats = GetComponent<EnemyUnitStats>();
     }
     
     void FixedUpdate()
@@ -29,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
             rotateTowardsTarget();
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * unitStats.speed);
     }
     
     private void checkIfCrossedTheLine()

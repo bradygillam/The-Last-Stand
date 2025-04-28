@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
@@ -33,7 +34,8 @@ public class EnemySpawn : MonoBehaviour
         Vector3 spawnPosition = new Vector3(transform.position.x + Random.value * MAX_X_SPAWN, 
                                         Random.value * MAX_Y_SPAWN, 
                                         transform.position.z);
-        Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPosition, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPosition, Quaternion.identity);
+        GlobalVariables.enemies.Add(newEnemy);
         cashToSpend -= 50f;
     }
 }

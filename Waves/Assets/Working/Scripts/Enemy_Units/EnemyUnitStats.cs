@@ -1,7 +1,6 @@
-
 using UnityEngine;
 
-public class FriendlyUnitStats : MonoBehaviour
+public class EnemyUnitStats : MonoBehaviour
 {
     [SerializeField] public float speed = 1f;
     public GameObject target;

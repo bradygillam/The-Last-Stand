@@ -96,7 +96,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1503700393552114764}
-  - component: {fileID: 8404243456735247109}
+  - component: {fileID: 9034374456841839713}
+  - component: {fileID: 1724570736735385291}
+  - component: {fileID: -6480664842700126796}
   m_Layer: 0
   m_Name: SpecialForces_Enemy
   m_TagString: Untagged
@@ -120,7 +122,7 @@ Transform:
   - {fileID: 6569700808250680289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8404243456735247109
+--- !u!114 &9034374456841839713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +131,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 8592298282181722650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f66891f2f94ab245b82c47004fcf4b7, type: 3}
+  m_Script: {fileID: 11500000, guid: c81966bc9ae549399d2ae35e30af6b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.65
+  target: {fileID: 0}
+--- !u!114 &1724570736735385291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592298282181722650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ddc90a3d3d0a447b2d4b8c5a78294d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6480664842700126796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592298282181722650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c38a5321014b099a46e61e71376dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

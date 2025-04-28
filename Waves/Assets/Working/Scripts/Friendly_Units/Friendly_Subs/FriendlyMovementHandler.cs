@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FriendlyMovement : MonoBehaviour
+public class FriendlyMovementHandler : MonoBehaviour
 {
     [SerializeField] protected GameObject unselectedSprite;
     [SerializeField] protected GameObject selectedSprite;
@@ -34,9 +34,8 @@ public class FriendlyMovement : MonoBehaviour
         if (transform.position != targetPosition)
         {
             rotateTowardsTarget();
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * unitStats.speed);
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * unitStats.speed);
     }
     
     private void rotateTowardsTarget()

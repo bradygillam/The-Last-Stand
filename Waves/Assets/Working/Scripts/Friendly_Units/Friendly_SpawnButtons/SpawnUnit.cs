@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -88,6 +89,7 @@ public class SpawnUnit : MonoBehaviour
         Vector3 spawnPosition = new Vector3(transform.position.x, 
             Random.value * MAX_Y_SPAWN, 
             transform.position.z);
-        Instantiate(unit, spawnPosition, Quaternion.identity);
+        GameObject newFriendly = Instantiate(unit, spawnPosition, Quaternion.identity);
+        GlobalVariables.friendlies.Add(newFriendly);
     }
 }
