@@ -4,17 +4,18 @@ public class FriendlyMovement : MonoBehaviour
 {
     [SerializeField] protected GameObject unselectedSprite;
     [SerializeField] protected GameObject selectedSprite;
+    
     Vector3 targetPosition;
-    private float speed = 1f;
-    private float MAX_Y_MOV_OFFSET = 1f;
-    private float MAX_X_MOV_OFFSET = 1f;
     private float INITIAL_X_MOV = -1f;
     private bool isSelected;
+    
+    private FriendlyUnitStats unitStats;
     
     void Start()
     {
         isSelected = true;
         targetPosition = transform.position + new Vector3(INITIAL_X_MOV, 0f, 0f);
+        unitStats = GetComponent<FriendlyUnitStats>();
     }
 
     void Update()
@@ -35,7 +36,7 @@ public class FriendlyMovement : MonoBehaviour
             rotateTowardsTarget();
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * unitStats.speed);
     }
     
     private void rotateTowardsTarget()

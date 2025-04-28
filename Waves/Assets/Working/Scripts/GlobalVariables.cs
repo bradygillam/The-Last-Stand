@@ -23,22 +23,6 @@ public class GlobalVariables : MonoBehaviour
     public static float specialForcesFriendlyCost;
     public static float machineGunnerFriendlyCost;
     public static float sniperFriendlyCost;
-
-    [Space]
-    
-    [Header("Friendly Unit Costs")]
-    [SerializeField] private float _recruitSpeed;
-    [SerializeField] private float _riflemanSpeed;
-    [SerializeField] private float _marineSpeed;
-    [SerializeField] private float _specialForcesSpeed;
-    [SerializeField] private float _machineGunnerSpeed;
-    [SerializeField] private float _sniperSpeed;
-    public static float recruitSpeed;
-    public static float riflemanSpeed;
-    public static float marineSpeed;
-    public static float specialForcesSpeed;
-    public static float machineGunnerSpeed;
-    public static float sniperSpeed;
     
     private void Awake()
     {
@@ -51,12 +35,5 @@ public class GlobalVariables : MonoBehaviour
         specialForcesFriendlyCost = _specialForcesFriendlyCost;
         machineGunnerFriendlyCost = _machineGunnerFriendlyCost;
         sniperFriendlyCost = _sniperFriendlyCost;
-        
-        recruitSpeed = _recruitSpeed;
-        riflemanSpeed = _riflemanSpeed;
-        marineSpeed = _marineSpeed;
-        specialForcesSpeed = _specialForcesSpeed;
-        machineGunnerSpeed = _machineGunnerSpeed;
-        sniperSpeed = _sniperSpeed;
     }
 }

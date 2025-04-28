@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1503700393552114764}
   - component: {fileID: 7715891596770402081}
+  - component: {fileID: -7531010575404385803}
   - component: {fileID: 8059363463774920925}
   m_Layer: 0
   m_Name: Sniper_Friendly
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unselectedSprite: {fileID: 7177965754576885576}
   selectedSprite: {fileID: 8960351184748171399}
+--- !u!114 &-7531010575404385803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592298282181722650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546057ab267549e4b1cdcb8c117aab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.75
 --- !u!58 &8059363463774920925
 CircleCollider2D:
   m_ObjectHideFlags: 0
