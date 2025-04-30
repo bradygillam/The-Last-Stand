@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4295839030373947638}
   - component: {fileID: 331918498985172520}
   m_Layer: 0
-  m_Name: selecting
+  m_Name: searching
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,5 +301,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingState: {fileID: 4640216264695552211}
-  selectingState: {fileID: 331918498985172520}
+  searchingState: {fileID: 331918498985172520}
   stats: {fileID: 1215642116954805717}

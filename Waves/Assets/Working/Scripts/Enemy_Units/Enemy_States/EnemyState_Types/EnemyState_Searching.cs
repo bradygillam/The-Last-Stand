@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyState_Selecting : EnemyState
+public class EnemyState_Searching : EnemyState
 {
     private int i;
 
@@ -17,7 +17,6 @@ public class EnemyState_Selecting : EnemyState
         if (i == 100)
         {
             isComplete = true;
-            Debug.Log("We have waited long enough");
         }
     }
 
