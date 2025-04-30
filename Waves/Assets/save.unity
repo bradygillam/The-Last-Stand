@@ -641,8 +641,6 @@ MonoBehaviour:
   - {fileID: 8592298282181722650, guid: cf7364df30aaaa043bb8695f081d9e25, type: 3}
   - {fileID: 8592298282181722650, guid: 6ecae403d5764a14e80fb6e2125fc028, type: 3}
   ENEMY_START_CASH: 100
-  wavesStart: 1
-  waveRepeat: 3
 --- !u!4 &360146289
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,6 +1498,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253391652}
   m_CullTransparentMesh: 1
+--- !u!1 &1368401060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1368401062}
+  - component: {fileID: 1368401061}
+  m_Layer: 0
+  m_Name: GlobalVariables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1368401061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368401060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a920c844eb14f3995906576753ed0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCash: 10000
+  _waveNumber: 5
+  _waveStartTime: 1
+  _waveRepeatTime: 10
+  _recruitFriendlyCost: 50
+  _riflemanFriendlyCost: 100
+  _marineFriendlyCost: 150
+  _specialForcesFriendlyCost: 250
+  _machineGunnerFriendlyCost: 125
+  _sniperFriendlyCost: 125
+--- !u!4 &1368401062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368401060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.433308, y: 6.2167373, z: -0.10775977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1471508842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,6 +2332,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1967923041}
+  - {fileID: 1368401062}
   - {fileID: 360146289}
   - {fileID: 1193937846}
   - {fileID: 1682505504}
