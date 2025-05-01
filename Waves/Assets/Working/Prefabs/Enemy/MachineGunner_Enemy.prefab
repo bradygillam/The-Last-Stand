@@ -45,6 +45,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.75
+--- !u!1 &4401540779653719000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7243251568609181945}
+  - component: {fileID: 1774911773944345137}
+  m_Layer: 0
+  m_Name: offscreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7243251568609181945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401540779653719000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3759975561428688748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774911773944345137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401540779653719000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9898c4c830ba4fde8e99b070ffb6732d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5921043167040928465
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b912ceddf6f04f9aa53b9aa3672bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offscreenState: {fileID: 1774911773944345137}
   movingState: {fileID: 3636528482947036582}
   searchingState: {fileID: 1482730372483814054}
   stats: {fileID: 6393899012506522046}
@@ -301,5 +346,6 @@ Transform:
   m_Children:
   - {fileID: 3726590958466911134}
   - {fileID: 8412954086587896528}
+  - {fileID: 7243251568609181945}
   m_Father: {fileID: 1503700393552114764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

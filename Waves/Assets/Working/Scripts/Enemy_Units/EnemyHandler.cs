@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
 {
+    [SerializeField] private EnemyState_OffScreen offscreenState;
     [SerializeField] private EnemyState_Moving movingState;
     [SerializeField] private EnemyState_Searching searchingState;
     [SerializeField] private EnemyStats stats;
@@ -9,9 +10,10 @@ public class EnemyHandler : MonoBehaviour
 
     private void Awake()
     {
+        offscreenState.Setup(gameObject, stats);
         movingState.Setup(gameObject, stats);
         searchingState.Setup(gameObject, stats);
-        state = movingState;
+        state = offscreenState;
         state.Enter();
     }
     
@@ -29,6 +31,9 @@ public class EnemyHandler : MonoBehaviour
         state.Exit();
         switch (state)
         {
+            case EnemyState_OffScreen:
+                state = movingState;
+                break;
             case EnemyState_Moving:
                 state = searchingState;
                 break;
