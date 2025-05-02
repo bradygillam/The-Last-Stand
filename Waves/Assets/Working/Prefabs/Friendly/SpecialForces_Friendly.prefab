@@ -87,6 +87,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2143918193864049318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7201104941774694137}
+  - component: {fileID: 343177437280813699}
+  m_Layer: 0
+  m_Name: offscreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7201104941774694137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143918193864049318}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7773183527458555758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &343177437280813699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143918193864049318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621b8db3ca8b43c0902324141a97df2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2901207671528099329
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fe00c7e176491b90145d82f5d6cc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1
 --- !u!1 &3023655552130224129
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +463,7 @@ Transform:
   - {fileID: 8592542067338395714}
   - {fileID: 8292796630066672403}
   - {fileID: 3501711350109937800}
+  - {fileID: 7201104941774694137}
   m_Father: {fileID: 1503700393552114764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8592298282181722650
@@ -505,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0af71aff6e44e9908b48819c6cc98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offscreenState: {fileID: 343177437280813699}
   movingState: {fileID: 3590855793614391922}
   searchingState: {fileID: 6310988046452489509}
   selectedState: {fileID: 494374613061487853}

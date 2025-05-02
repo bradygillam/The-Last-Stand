@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class FriendlyStats : MonoBehaviour
 {
-    public float speed;
+    public float speed { get; protected set; }
 }

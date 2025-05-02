@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FriendlyHandler : MonoBehaviour
 {
+    [SerializeField] private FriendlyState_OffScreen offscreenState;
     [SerializeField] private FriendlyState_Moving movingState;
     [SerializeField] private FriendlyState_Searching searchingState;
     [SerializeField] private FriendlyState_Selected selectedState;
@@ -12,10 +13,11 @@ public class FriendlyHandler : MonoBehaviour
     
     private void Awake()
     {
+        offscreenState.Setup(gameObject, stats);
         movingState.Setup(gameObject, stats);
         searchingState.Setup(gameObject, stats);
         selectedState.Setup(gameObject, stats);
-        state = selectedState;
+        state = offscreenState;
         state.Enter();
     }
 
@@ -46,6 +48,9 @@ public class FriendlyHandler : MonoBehaviour
         {
             switch (state)
             {
+                case FriendlyState_OffScreen:
+                    state = searchingState;
+                    break;
                 case FriendlyState_Moving:
                     state = searchingState;
                     break;
