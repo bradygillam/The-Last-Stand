@@ -7,7 +7,7 @@ public class EnemyState_Moving : EnemyState
     private float MIN_Y = 0;
     private float MAX_Y = 9.6f;
     private float MIN_Y_RETRY = 8.6f;
-    private float MAX_MOVE_OFFSET = 1f;
+    private float MAX_MOVE_OFFSET = 5f;
     private float DEATH_PLANE = 8.7f;
 
     public override void Enter()
@@ -36,7 +36,7 @@ public class EnemyState_Moving : EnemyState
 
     private void selectTargetLocation()
     {
-        Vector3 newPosition = new Vector3(transform.position.x + MAX_MOVE_OFFSET, 
+        Vector3 newPosition = new Vector3(transform.position.x + Random.value * MAX_MOVE_OFFSET, 
             transform.position.y - MAX_MOVE_OFFSET/2 + Random.value * MAX_MOVE_OFFSET, 
             transform.position.z);
 

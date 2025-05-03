@@ -1,39 +1,46 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemies;
-    [SerializeField] private float ENEMY_START_CASH = 100f;
+    private List<GameObject> toSpawn;
     private float MAX_Y_SPAWN = 9.6f;
     private float MAX_X_SPAWN = 1.5f;
-    private float cashToSpend;
 
     void Start()
-    {
-        cashToSpend = ENEMY_START_CASH;        
+    {  
         InvokeRepeating("spawnWave", GlobalVariables.waveStartTime, GlobalVariables.waveRepeatTime);
     }
 
     private void spawnWave()
     {
-        cashToSpend += 10 * GlobalVariables.waveNumber;
+        Debug.Log("Wave number: " + GlobalVariables.waveNumber);
+        float cashToUse = 50 * GlobalVariables.waveNumber;
+        toSpawn = new List<GameObject>();
         
-        while (cashToSpend >= 100f)
+        while (cashToUse >= 50)
         {
-            spawnEnemy();
+            int randomIndex = Random.Range(0, GlobalVariables.enemyPrefabCostPairs.Count);
+            if (cashToUse >= GlobalVariables.enemyPrefabCostPairs[randomIndex].cost)
+            {
+                toSpawn.Add(GlobalVariables.enemyPrefabCostPairs[randomIndex].enemyPrefab);
+                cashToUse -= GlobalVariables.enemyPrefabCostPairs[randomIndex].cost;
+            }
         }
         
+        spawnEnemies();
         GlobalVariables.waveNumber++;
     }
 
-    private void spawnEnemy()
+    private void spawnEnemies()
     {
-        Vector3 spawnPosition = new Vector3(transform.position.x + Random.value * MAX_X_SPAWN, 
-                                        Random.value * MAX_Y_SPAWN, 
-                                        transform.position.z);
-        GameObject newEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPosition, Quaternion.identity);
-        GlobalVariables.enemies.Add(newEnemy);
-        cashToSpend -= 50f;
+        foreach (GameObject enemy in toSpawn)
+        {
+            Vector3 spawnPosition = new Vector3(transform.position.x + Random.value * MAX_X_SPAWN, 
+                                            Random.value * MAX_Y_SPAWN, 
+                                            transform.position.z);
+            GameObject newEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+            GlobalVariables.enemies.Add(newEnemy);
+        }
     }
 }
