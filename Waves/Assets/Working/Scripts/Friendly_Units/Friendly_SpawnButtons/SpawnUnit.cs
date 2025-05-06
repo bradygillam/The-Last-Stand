@@ -10,29 +10,34 @@ public class SpawnUnit : MonoBehaviour
     [SerializeField] private GameObject recruit;
     [SerializeField] private GameObject rifleman;
     
+    private float recruitCost;
+    private float riflemanCost;
+    
     private float MAX_Y_SPAWN = 9.6f;
     
     void Start()
     {
+        recruitCost = recruit.GetComponentInChildren<FriendlyStats>()._cost;
+        riflemanCost = rifleman.GetComponentInChildren<FriendlyStats>()._cost;
         recruitButton.onClick.AddListener(onRecruitButtonClick);
         riflemanButton.onClick.AddListener(onRiflemanButtonClick);
     }
 
     private void onRecruitButtonClick()
     {
-        if (GlobalVariables.playerCash >= GlobalVariables.recruitFriendlyCost)
+        if (GlobalVariables.playerCash >= recruitCost)
         {
             spawnFriendly(recruit);
-            GlobalVariables.playerCash -= GlobalVariables.recruitFriendlyCost;
+            GlobalVariables.playerCash -= recruitCost;
         }
     }
     
     private void onRiflemanButtonClick()
     {
-        if (GlobalVariables.playerCash >= GlobalVariables.riflemanFriendlyCost)
+        if (GlobalVariables.playerCash >= riflemanCost)
         {
             spawnFriendly(rifleman);
-            GlobalVariables.playerCash -= GlobalVariables.riflemanFriendlyCost;
+            GlobalVariables.playerCash -= riflemanCost;
         }
     }
 

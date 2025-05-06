@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> possibleEnemiesToSpawn;
+    private List<EnemyPrefabCostPair> enemiesCostPairs;
     private List<GameObject> toSpawn;
     private float MAX_Y_SPAWN = 9.6f;
     private float MAX_X_SPAWN = 1.5f;
@@ -10,6 +13,11 @@ public class EnemySpawn : MonoBehaviour
 
     void Start()
     {  
+        enemiesCostPairs = new List<EnemyPrefabCostPair>();
+        foreach (GameObject enemy in possibleEnemiesToSpawn)
+        {
+            enemiesCostPairs.Add(new EnemyPrefabCostPair(enemy, enemy.GetComponentInChildren<EnemyStats>()._cost));
+        }
         InvokeRepeating("spawnWave", GlobalVariables.waveStartTime, GlobalVariables.waveRepeatTime);
     }
 
@@ -20,11 +28,11 @@ public class EnemySpawn : MonoBehaviour
         DEBUGcount = 0;
         while (cashToUse >= 50 && DEBUGcount < 25)
         {
-            int randomIndex = Random.Range(0, GlobalVariables.enemyPrefabCostPairs.Count);
-            if (cashToUse >= GlobalVariables.enemyPrefabCostPairs[randomIndex].cost)
+            int randomIndex = Random.Range(0, enemiesCostPairs.Count);
+            if (cashToUse >= enemiesCostPairs[randomIndex].cost)
             {
-                toSpawn.Add(GlobalVariables.enemyPrefabCostPairs[randomIndex].enemyPrefab);
-                cashToUse -= GlobalVariables.enemyPrefabCostPairs[randomIndex].cost;
+                toSpawn.Add(enemiesCostPairs[randomIndex].enemyPrefab);
+                cashToUse -= enemiesCostPairs[randomIndex].cost;
             }
             DEBUGcount++;
         }

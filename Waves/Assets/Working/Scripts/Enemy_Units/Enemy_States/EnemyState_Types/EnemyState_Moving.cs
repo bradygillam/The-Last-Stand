@@ -21,7 +21,7 @@ public class EnemyState_Moving : EnemyState
 
     public override void FixedDo()
     {
-        parent.transform.position = Vector3.MoveTowards(parent.transform.position, targetPosition, Time.deltaTime * stats.speed);
+        parent.transform.position = Vector3.MoveTowards(parent.transform.position, targetPosition, Time.deltaTime * stats._speed);
         if (parent.transform.position.x > DEATH_PLANE)
         {
             Destroy(parent);

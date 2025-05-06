@@ -14,7 +14,7 @@ public class EnemyState_OffScreen : EnemyState
 
     public override void FixedDo()
     {
-        parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.transform.position + Vector3.right, Time.deltaTime * stats.speed);
+        parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.transform.position + Vector3.right, Time.deltaTime * stats._speed);
         if (parent.transform.position.x > MIN_X)
         {
             isComplete = true;

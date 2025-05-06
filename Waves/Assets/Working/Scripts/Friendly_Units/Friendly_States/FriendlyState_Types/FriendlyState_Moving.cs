@@ -18,7 +18,7 @@ public class FriendlyState_Moving : FriendlyState
 
     public override void FixedDo()
     {
-        parent.transform.position = Vector3.MoveTowards(parent.transform.position, targetPosition, Time.deltaTime * stats.speed);
+        parent.transform.position = Vector3.MoveTowards(parent.transform.position, targetPosition, Time.deltaTime * stats._speed);
         if (parent.transform.position == targetPosition)
         {
             isComplete = true;

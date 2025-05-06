@@ -2,6 +2,9 @@ using UnityEngine;
 
 public abstract class EnemyStats : MonoBehaviour
 {
-    public float cost { get; protected set; }
-    public float speed { get; protected set; }
+    [SerializeField] private float cost;
+    [SerializeField] private float speed;
+
+    public float _cost { get => cost; set => cost = value; }
+    public float _speed { get => speed; set => speed = value; }
 }

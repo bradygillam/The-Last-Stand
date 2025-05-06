@@ -15,7 +15,7 @@ public class FriendlyState_OffScreen : FriendlyState
 
     public override void FixedDo()
     {
-        parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.transform.position + Vector3.left, Time.deltaTime * stats.speed);
+        parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.transform.position + Vector3.left, Time.deltaTime * stats._speed);
         if (parent.transform.position.x < MAX_X)
         {
             isComplete = true;
