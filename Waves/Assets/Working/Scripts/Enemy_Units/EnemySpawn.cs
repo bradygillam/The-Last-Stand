@@ -6,6 +6,7 @@ public class EnemySpawn : MonoBehaviour
     private List<GameObject> toSpawn;
     private float MAX_Y_SPAWN = 9.6f;
     private float MAX_X_SPAWN = 1.5f;
+    private int DEBUGcount;
 
     void Start()
     {  
@@ -14,11 +15,10 @@ public class EnemySpawn : MonoBehaviour
 
     private void spawnWave()
     {
-        Debug.Log("Wave number: " + GlobalVariables.waveNumber);
         float cashToUse = 50 * GlobalVariables.waveNumber;
         toSpawn = new List<GameObject>();
-        
-        while (cashToUse >= 50)
+        DEBUGcount = 0;
+        while (cashToUse >= 50 && DEBUGcount < 25)
         {
             int randomIndex = Random.Range(0, GlobalVariables.enemyPrefabCostPairs.Count);
             if (cashToUse >= GlobalVariables.enemyPrefabCostPairs[randomIndex].cost)
@@ -26,6 +26,7 @@ public class EnemySpawn : MonoBehaviour
                 toSpawn.Add(GlobalVariables.enemyPrefabCostPairs[randomIndex].enemyPrefab);
                 cashToUse -= GlobalVariables.enemyPrefabCostPairs[randomIndex].cost;
             }
+            DEBUGcount++;
         }
         
         spawnEnemies();
