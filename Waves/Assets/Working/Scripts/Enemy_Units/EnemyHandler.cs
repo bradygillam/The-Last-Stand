@@ -7,6 +7,7 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] private EnemyState_Moving movingState;
     [SerializeField] private EnemyState_Searching searchingState;
     [SerializeField] private EnemyState_Attacking attackingState;
+    [SerializeField] private EnemyState_Dead deadState;
     [SerializeField] private EnemyStats stats;
     private EnemyState state;
 
@@ -16,13 +17,14 @@ public class EnemyHandler : MonoBehaviour
         movingState.Setup(gameObject, stats);
         searchingState.Setup(gameObject, stats);
         attackingState.Setup(gameObject, stats);
+        deadState.Setup(gameObject, stats);
         state = offscreenState;
         state.Enter();
     }
     
     private void FixedUpdate()
     {
-        if (state.isComplete)
+        if (state.isComplete || stats._health <= 0)
         {
             selectState();
         }
@@ -31,11 +33,6 @@ public class EnemyHandler : MonoBehaviour
 
     private void selectState()
     {
-        // TODO: check if dead needs a true death state
-        if (stats._health <= 0)
-        {
-            Destroy(parent);
-        }
         state.Exit();
         switch (state)
         {
@@ -43,17 +40,37 @@ public class EnemyHandler : MonoBehaviour
                 state = movingState;
                 break;
             case EnemyState_Moving:
-                state = searchingState;
+                if (stats._health <= 0)
+                {
+                    state = deadState;
+                }
+                else
+                {
+                    state = searchingState;
+                }
                 break;
             case EnemyState_Searching:
-                state = attackingState;
+                if (stats._health <= 0)
+                {
+                    state = deadState;
+                }
+                else
+                {
+                    state = attackingState;
+                }
                 break;
             case EnemyState_Attacking:
-                state = movingState;
+                if (stats._health <= 0)
+                {
+                    state = deadState;
+                }
+                else
+                {
+                    state = movingState;
+                }
                 break;
-            default:
-                state = movingState;
-                break;
+            case EnemyState_Dead:
+                return;
         }
         state.Enter();
     }
