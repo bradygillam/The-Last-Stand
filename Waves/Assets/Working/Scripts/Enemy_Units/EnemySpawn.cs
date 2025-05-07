@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    [SerializeField] private int waveStartTime;
+    [SerializeField] private int waveRepeatTime;
     [SerializeField] private List<GameObject> possibleEnemiesToSpawn;
     private List<EnemyPrefabCostPair> enemiesCostPairs;
     private List<GameObject> toSpawn;
@@ -13,12 +15,13 @@ public class EnemySpawn : MonoBehaviour
 
     void Start()
     {  
+        
         enemiesCostPairs = new List<EnemyPrefabCostPair>();
         foreach (GameObject enemy in possibleEnemiesToSpawn)
         {
             enemiesCostPairs.Add(new EnemyPrefabCostPair(enemy, enemy.GetComponentInChildren<EnemyStats>()._cost));
         }
-        InvokeRepeating("spawnWave", GlobalVariables.waveStartTime, GlobalVariables.waveRepeatTime);
+        InvokeRepeating("spawnWave", waveStartTime, waveRepeatTime);
     }
 
     private void spawnWave()

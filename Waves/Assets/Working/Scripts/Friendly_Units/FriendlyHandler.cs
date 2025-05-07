@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class FriendlyHandler : MonoBehaviour
 {
+    [SerializeField] private GameObject parent;
     [SerializeField] private FriendlyState_OffScreen offscreenState;
     [SerializeField] private FriendlyState_Moving movingState;
     [SerializeField] private FriendlyState_Searching searchingState;
+    [SerializeField] private FriendlyState_Attacking attackingState;
     [SerializeField] private FriendlyState_Selected selectedState;
     [SerializeField] private FriendlyStats stats;
     [SerializeField] private Collider2D clickable;
@@ -16,6 +18,7 @@ public class FriendlyHandler : MonoBehaviour
         offscreenState.Setup(gameObject, stats);
         movingState.Setup(gameObject, stats);
         searchingState.Setup(gameObject, stats);
+        attackingState.Setup(gameObject, stats);
         selectedState.Setup(gameObject, stats);
         state = offscreenState;
         state.Enter();
@@ -38,6 +41,11 @@ public class FriendlyHandler : MonoBehaviour
     
     private void selectState()
     {
+        // TODO: check if dead needs a true death state
+        if (stats._health <= 0)
+        {
+            Destroy(parent);
+        }
         state.Exit();
         if (wasClicked)
         {
@@ -52,13 +60,32 @@ public class FriendlyHandler : MonoBehaviour
                     state = searchingState;
                     break;
                 case FriendlyState_Moving:
-                    state = searchingState;
+                    if (stats._enemyTarget == null)
+                    {
+                        state = searchingState;
+
+                    }
+                    else
+                    {
+                        state = attackingState;
+                    }
                     break;
                 case FriendlyState_Selected:
                     state = movingState;
                     break;
+                case FriendlyState_Attacking:
+                    if (stats._enemyTarget == null)
+                    {
+                        state = searchingState;
+
+                    }
+                    else
+                    {
+                        state = attackingState;
+                    }
+                    break;
                 default:
-                    state = searchingState;
+                    state = attackingState;
                     break;
             }
         }

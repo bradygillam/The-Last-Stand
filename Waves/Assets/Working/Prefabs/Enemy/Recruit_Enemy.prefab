@@ -87,6 +87,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1035726679712113467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6518342794221951876}
+  - component: {fileID: 6431799446408146207}
+  m_Layer: 0
+  m_Name: attacking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6518342794221951876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035726679712113467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3899497332461524067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6431799446408146207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035726679712113467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a6ba736a174c2dac8eb5bf7920d1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4218748663989163057
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +251,7 @@ Transform:
   - {fileID: 4555607997261348322}
   - {fileID: 4760322579671288359}
   - {fileID: 5012488485932589982}
+  - {fileID: 6518342794221951876}
   m_Father: {fileID: 1503700393552114764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7606564915750594288
@@ -254,7 +299,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 50
+  health: 100
   speed: 0.5
+  searchTime: 5
+  atkTime: 5
+  atkSkill: 0.3
+  atkDamage: 30
 --- !u!1 &8285544265105934491
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b912ceddf6f04f9aa53b9aa3672bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 8592298282181722650}
   offscreenState: {fileID: 8035563440544083428}
   movingState: {fileID: 7682285622595666944}
   searchingState: {fileID: 3425131622749839882}
+  attackingState: {fileID: 6431799446408146207}
   stats: {fileID: 91395941528693143}

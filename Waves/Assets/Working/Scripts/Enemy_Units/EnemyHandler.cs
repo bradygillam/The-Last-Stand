@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
 {
+    [SerializeField] private GameObject parent;
     [SerializeField] private EnemyState_OffScreen offscreenState;
     [SerializeField] private EnemyState_Moving movingState;
     [SerializeField] private EnemyState_Searching searchingState;
+    [SerializeField] private EnemyState_Attacking attackingState;
     [SerializeField] private EnemyStats stats;
     private EnemyState state;
 
@@ -13,6 +15,7 @@ public class EnemyHandler : MonoBehaviour
         offscreenState.Setup(gameObject, stats);
         movingState.Setup(gameObject, stats);
         searchingState.Setup(gameObject, stats);
+        attackingState.Setup(gameObject, stats);
         state = offscreenState;
         state.Enter();
     }
@@ -28,6 +31,11 @@ public class EnemyHandler : MonoBehaviour
 
     private void selectState()
     {
+        // TODO: check if dead needs a true death state
+        if (stats._health <= 0)
+        {
+            Destroy(parent);
+        }
         state.Exit();
         switch (state)
         {
@@ -38,6 +46,9 @@ public class EnemyHandler : MonoBehaviour
                 state = searchingState;
                 break;
             case EnemyState_Searching:
+                state = attackingState;
+                break;
+            case EnemyState_Attacking:
                 state = movingState;
                 break;
             default:

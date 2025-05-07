@@ -80,6 +80,50 @@ Transform:
   - {fileID: 8228163340552299199}
   m_Father: {fileID: 1503700393552114764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3279181813538932914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359431116555224422}
+  - component: {fileID: 1521731484025640201}
+  m_Layer: 0
+  m_Name: attacking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359431116555224422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279181813538932914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1097612712234207404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1521731484025640201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279181813538932914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272123e6dd954c889028279dbea90ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3710813182805016075
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +376,7 @@ Transform:
   - {fileID: 5774016469524742232}
   - {fileID: 969816530917732698}
   - {fileID: 8208537744078028729}
+  - {fileID: 359431116555224422}
   m_Father: {fileID: 1503700393552114764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8442730464822712510
@@ -379,7 +424,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 100
+  health: 100
   speed: 1
+  searchTime: 3
+  atkTime: 3
+  atkSkill: 0.5
+  atkDamage: 50
 --- !u!1 &8592298282181722650
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,9 +514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0af71aff6e44e9908b48819c6cc98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 8592298282181722650}
   offscreenState: {fileID: 2095027261922340503}
   movingState: {fileID: 7331879273296607359}
   searchingState: {fileID: 2150394997480463120}
+  attackingState: {fileID: 1521731484025640201}
   selectedState: {fileID: 6850470347442925736}
   stats: {fileID: 395937222414619365}
   clickable: {fileID: 1684314584190190364}
