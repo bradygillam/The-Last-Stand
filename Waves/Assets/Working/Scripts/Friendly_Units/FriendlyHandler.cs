@@ -113,7 +113,7 @@ public class FriendlyHandler : MonoBehaviour
                     wasClicked = false;
                     state = selectedState;
                 }
-                else if (stats._enemyTarget == null)
+                else if (stats._enemyTarget == null || stats._enemyTarget.GetComponentInChildren<EnemyStats>()._health <= 0)
                 {
                     state = searchingState;
 
