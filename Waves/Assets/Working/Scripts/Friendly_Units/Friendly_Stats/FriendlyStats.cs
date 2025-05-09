@@ -9,6 +9,7 @@ public abstract class FriendlyStats : MonoBehaviour
     [SerializeField] private float atkTime;
     [SerializeField] private float atkSkill;
     [SerializeField] private float atkDamage;
+    private bool isSelected;
     private GameObject enemyTarget;
     
     public float _cost { get => cost; set => cost = value; }
@@ -18,5 +19,7 @@ public abstract class FriendlyStats : MonoBehaviour
     public float _atkTime { get => atkTime; set => atkTime = value; }
     public float _atkSkill { get => atkSkill; set => atkSkill = value; }
     public float _atkDamage { get => atkDamage; set => atkDamage = value; }
+    public bool _isSelected { get; set; }
     public GameObject _enemyTarget { get; set; }
+
 }

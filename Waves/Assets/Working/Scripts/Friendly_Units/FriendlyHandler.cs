@@ -10,9 +10,7 @@ public class FriendlyHandler : MonoBehaviour
     [SerializeField] private FriendlyState_Selected selectedState;
     [SerializeField] private FriendlyState_Dead deadState;
     [SerializeField] private FriendlyStats stats;
-    [SerializeField] private Collider2D clickable;
     private FriendlyState state;
-    private bool wasClicked;
     
     private void Awake()
     {
@@ -28,13 +26,12 @@ public class FriendlyHandler : MonoBehaviour
 
     private void Update()
     {
-        detectSelected();
         state.Do();
     }
     
     private void FixedUpdate()
     {
-        if (state.isComplete || wasClicked || stats._health <= 0)
+        if (state.isComplete || stats._isSelected || stats._health <= 0)
         {
             selectState();
         }
@@ -55,9 +52,9 @@ public class FriendlyHandler : MonoBehaviour
                 {
                     state = deadState;
                 }            
-                else if (wasClicked)
+                else if (stats._isSelected)
                 {
-                    wasClicked = false;
+                    stats._isSelected = false;
                     state = selectedState;
                 }
                 else if (stats._enemyTarget == null)
@@ -74,9 +71,9 @@ public class FriendlyHandler : MonoBehaviour
                 {
                     state = deadState;
                 }            
-                else if (wasClicked)
+                else if (stats._isSelected)
                 {
-                    wasClicked = false;
+                    stats._isSelected = false;
                     state = selectedState;
                 }
                 else if (stats._enemyTarget == null)
@@ -93,9 +90,9 @@ public class FriendlyHandler : MonoBehaviour
                 {
                     state = deadState;
                 }            
-                else if (wasClicked)
+                else if (stats._isSelected)
                 {
-                    wasClicked = false;
+                    stats._isSelected = false;
                     state = selectedState;
                 }
                 else
@@ -108,9 +105,9 @@ public class FriendlyHandler : MonoBehaviour
                 {
                     state = deadState;
                 }            
-                else if (wasClicked)
+                else if (stats._isSelected)
                 {
-                    wasClicked = false;
+                    stats._isSelected = false;
                     state = selectedState;
                 }
                 else if (stats._enemyTarget == null || stats._enemyTarget.GetComponentInChildren<EnemyStats>()._health <= 0)
@@ -128,20 +125,5 @@ public class FriendlyHandler : MonoBehaviour
         }
         
         state.Enter();
-    }
-
-    private void detectSelected()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mouseClickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            
-            RaycastHit2D hit = Physics2D.Raycast(mouseClickPosition, Vector2.zero);
-            
-            if (hit.collider == clickable)
-            {
-                wasClicked = true;
-            }
-        }
     }
 }

@@ -54,6 +54,10 @@ public class EnemyHandler : MonoBehaviour
                 {
                     state = deadState;
                 }
+                else if (stats._enemyTarget == null)
+                {
+                    state = movingState;
+                }
                 else
                 {
                     state = attackingState;
